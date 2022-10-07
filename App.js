@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Keyboard, ScrollView, StyleSheet, Text, View } from 'react-native';
 import InputField from './templates/InputField';
 import TaskItem from './templates/TaskItem';
@@ -16,19 +17,19 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>MY TODO APP</Text>
-      <ScrollView style={styles.ScrollView}>
+      <Text style={styles.heading}>TODO LIST</Text>
+      <ScrollView style={styles.scrollView}>
         {
           tasks.map((task, index) => {
             return (
               <View key={index} style={styles.taskContainer}>
-                <TaskItem index={index + 1} task={task} deleteTask={() => deleteTask()}></TaskItem>
+                <TaskItem index={index + 1} task={task} deleteTask={() => deleteTask(index)} />
               </View>
             );
           })
         }
       </ScrollView>
-      <InputField addTask={addTask}></InputField>
+      <InputField addTask={addTask} />
     </View>
   );
 }
@@ -36,17 +37,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#33CC99',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  heading: {
     color: '#fff',
-    marginTop: 20,
-    marginBottom: 15,
-    marginLeft: 15,
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginTop: 50,
+    marginBottom: 10,
+    marginLeft: 110,
+
   },
   scrollView: {
     marginBottom: 70,

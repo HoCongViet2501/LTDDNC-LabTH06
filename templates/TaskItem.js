@@ -1,4 +1,6 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default TaskItem = (props) => {
@@ -10,48 +12,49 @@ export default TaskItem = (props) => {
             <View style={styles.taskContainer}>
                 <Text style={styles.task}>{props.task}</Text>
                 <TouchableOpacity onPress={() => props.deleteTask()}>
-                    <MaterialIcons name="delete" size={24} color="#fff" style={styles.delete} />
+                    <MaterialIcons style={styles.delete} name="delete" size={18} color='#fff' />
                 </TouchableOpacity>
             </View>
         </View>
     );
 }
 
+
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        marginhorizontal: 20,
+        marginHorizontal: 20,
     },
     indexContainer: {
-        backgroundColor: '#3E3332',
-        borderRadius: 50,
+        backgroundColor: '#006699',
+        borderRadius: 12,
         marginRight: 10,
         alignItems: 'center',
-        justifycontent: 'center',
+        justifyContent: 'center',
         width: 50,
         height: 50,
     },
     index: {
-        color: "#fff",
+        color: '#fff',
         fontSize: 20,
     },
-    taskContainer:{
-        backgroundColor: '#3E3332',
-        borderRadius: 10,
-        alignItems: 'center',
+    taskContainer: {
+        backgroundColor: '#006666',
+        borderRadius: 12,
         flexDirection: 'row',
-        justifycontent: 'space-between',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         flex: 1,
-        paddhorizontal: 10,
-        paddvertical: 5,
-        minheight: 50,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        minHeight: 50,
     },
     task: {
-        color: "#fff",
+        color: '#fff',
         width: '90%',
-        fontsize: 16,
+        fontSize: 16,
     },
     delete: {
         marginLeft: 10,
-    }
+    },
 });
